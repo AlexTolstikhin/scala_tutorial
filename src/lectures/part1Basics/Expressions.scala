@@ -55,13 +55,11 @@ val someValue = {
     2 > 3
 }
 //  Boolean false
-
+println(someValue)
   val someOtherValue = {
     if (someValue) 239 else 987
     42
   }
   // 42 Int
-
-
-
+print(someOtherValue)
 }
