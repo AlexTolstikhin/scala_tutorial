@@ -49,4 +49,19 @@ object Expressions extends App {
 
     if (z > 2) "hello" else "goodbye"
   }
+//  Difference between "hello world" and println("hello world")
+//  1st is variable of type string and 2nd is an expression(side effect) which type is Unit
+val someValue = {
+    2 > 3
+}
+//  Boolean false
+
+  val someOtherValue = {
+    if (someValue) 239 else 987
+    42
+  }
+  // 42 Int
+
+
+
 }
