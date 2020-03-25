@@ -1,53 +1,62 @@
 package lectures.part2oop
 
 object Inheritence extends App {
+
   class Animal {
     val creatureType = "wild"
-    // def can public, protected or private
-
-    final def eat: Unit  = println("nananana")
+    def eat = println("Eating")
   }
 
-
-  // single class inheritance
   class Cat extends Animal {
-
-  }
-  val cat = new Cat
-
-
-
-//  constructors
-  class Person(name: String, age: Int) {
-    def this(name: String) = this(name, 0)
-}
-  class Adult(name: String, age: Int, idCard: String) extends Person("Alex", 30)
-
-  //overriding
-
-  class Dog(override val creatureType: String) extends Animal {
-    override def eat: Unit = {
-      super.eat
-      println("Crunch crunch")
+    final def crunch = {
+      eat
+      println("Cat Eating")
     }
   }
 
-  val dog = new Dog("Domestic")
+  val cat = new Cat
+  cat.crunch
+
+
+
+  class Person(name: String, age: Int)
+  class Adult(name: String, age:Int, idCard: String) extends Person(name, age)
+
+  // overriding
+//  class Dog(override val creatureType: String) extends Animal {
+////    override val creatureType: String = "domestic"
+//    override def eat: Unit = println("Brunch Brunch")
+//  }
+  class Dog(dogType: String) extends Animal {
+    override val creatureType: String =  dogType
+
+    override def eat: Unit =
+      super.eat
+      println("Dog Eating!")
+  }
+
+  val dog = new Dog("Dog")
   dog.eat
-  println(dog.creatureType)
 
 
-  // type substitution (polymorphism)
+  // type substitution
   val unknownAnimal: Animal = new Dog("K9")
+  println("____Polymorphism____")
+
   unknownAnimal.eat
 
-  // Overriding vs Overloading
 
-  // super
-  // super allows to access methods and fields of the super class
+  // overriding - supplying different implementations in derived classes
+  // overloading - supplying multiple methods with different signature but the same name within the same class
 
-  // Preventing overriding
-  // 1. Use final in front of methods or class fields
-  // 2. Use final on the class (You can't extend class)
-  // 3. Seal the class (You can extend class in this file but can't outside) ==> sealed class Animal
+
+  // super is used when you want to reference a method or field from the derived class
+
+  // To prevent overriding
+  //  1. Use final on method
+  //  2. use final on class
+  //  3. seal the class protect from extending in other files
 }
+
+
+

@@ -1,4 +1,5 @@
 package lectures.part2oop
+import scala.language.postfixOps
 
 object MethodNotations extends App {
   class Person(val name: String, val favoriteMovie: String, val age: Int = 0) {
@@ -54,7 +55,7 @@ object MethodNotations extends App {
 
   // postfix notation
   println(mary.isAlive)
-  println(mary isAlive)
+  println(mary.isAlive)
 
   // apply method is defined in class with apply() and can be called with className() the same as className.apply()
   println(mary.apply())
