@@ -17,4 +17,8 @@ object AnonymousClassess extends App {
   val jim = new Person("Jim"){
     override def sayHi: Unit = println(s"Hi my name is Jim")
   }
+
+
+
+
 }
